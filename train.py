@@ -47,6 +47,7 @@ classes = ('plane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship'
 net = EfficientNet.from_pretrained("efficientnet-b0").to(device)
 feature = net._fc.in_features
 net._fc = nn.Linear(in_features=feature,out_features=10,bias=True)
+net = net.to(device)
 # feature = net._fc.out_features
 # output_filters = net._conv_stem.out_channels
 # net._conv_stem = nn.Conv2d(1, output_filters, kernel_size=3, stride=2, bias=False)
